@@ -2,7 +2,7 @@ module MyEnumerableMethods
   refine Array do
     def my_each
       if block_given?
-        0.upto(length - 1) { |i| yield self[i] }
+        length.times { |i| yield self[i] }
 
         self
       else
@@ -14,7 +14,7 @@ module MyEnumerableMethods
       res = []
 
       if block_given?
-        0.upto(length - 1) { |i| res << yield(self[i]) }
+        length.times { |i| res << yield(self[i]) }
       else
         res = to_enum :my_map
       end
@@ -26,7 +26,7 @@ module MyEnumerableMethods
       res = []
 
       if block_given?
-        0.upto(length - 1) { |i| res << self[i] if yield(self[i]) }
+        length.times { |i| res << self[i] if yield(self[i]) }
       else
         res = to_enum :my_select
       end
