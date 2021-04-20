@@ -42,5 +42,16 @@ module ArrayMethods
       end
       return_array
     end
+    
+    def my_reverse!
+      array = Array.new(length)
+      length.times do |i|
+        array[-1 - i] = self[i]
+      end
+      length.times do |i|
+        self[i] = array[i]
+      end
+      self
+    end
   end
 end
