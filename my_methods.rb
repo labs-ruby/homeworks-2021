@@ -14,5 +14,10 @@ module ArrayMethods
       end
       return_array
     end
+    
+    def my_empty?
+      true if length == 0
+      false if length != 0
+    end
   end
 end
