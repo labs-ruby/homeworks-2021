@@ -34,5 +34,13 @@ module ArrayMethods
       true if length.zero?
       false if length != 0
     end
+    
+    def my_reverse
+      return_array = Array.new(length)
+      length.times do |i|
+        return_array[-1 - i] = self[i]
+      end
+      return_array
+    end
   end
 end
