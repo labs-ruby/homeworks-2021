@@ -22,6 +22,14 @@ module ArrayMethods
       self
     end
     
+    def my_select
+      return_array = []
+      length.times do |i|
+        return_array << self[i] if yield(self[i])
+      end
+      return_array
+    end
+    
     def my_empty?
       true if length.zero?
       false if length != 0
