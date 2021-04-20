@@ -31,8 +31,7 @@ module ArrayMethods
     end
     
     def my_empty?
-      true if length.zero?
-      false if length != 0
+      length.zero? ? true : false
     end
     
     def my_reverse
