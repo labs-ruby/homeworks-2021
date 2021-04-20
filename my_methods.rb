@@ -16,7 +16,7 @@ module ArrayMethods
     end
     
     def my_empty?
-      true if length == 0
+      true if length.zero?
       false if length != 0
     end
   end
