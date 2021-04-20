@@ -15,6 +15,13 @@ module ArrayMethods
       return_array
     end
     
+    def my_map!
+      length.times do |i|
+        self[i] = yield(self[i])
+      end
+      self
+    end
+    
     def my_empty?
       true if length.zero?
       false if length != 0
