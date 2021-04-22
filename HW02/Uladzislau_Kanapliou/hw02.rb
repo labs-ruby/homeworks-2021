@@ -18,6 +18,11 @@ module MyArrayMethods
     end
 
     def my_map
+      new_array = []
+      for i in 0...size
+        new_array << yield(self[i])
+      end
+      new_array
     end
   end
 end
