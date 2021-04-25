@@ -18,8 +18,17 @@ module MyArrayMethods
         self
       end
     end
+
+    def my_map
+      if block_given?
+        array = []
+        for index in (0...length)
+          array << yield(self[index])
+        end
+        array
+      else
+        self
+      end
+    end
   end
 end
-
-
-
