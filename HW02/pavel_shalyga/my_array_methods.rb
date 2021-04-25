@@ -6,6 +6,18 @@ module MyArrayMethods
       end
       self
     end
+
+    def my_select
+      if block_given?
+        array = []
+        for index in (0...length)
+          array << self[index] if yield(self[index])
+        end
+        array
+      else
+        self
+      end
+    end
   end
 end
 
