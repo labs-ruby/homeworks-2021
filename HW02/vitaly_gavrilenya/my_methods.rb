@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module NewArrayMethods
   refine Array do
     def my_map
       result_array = []
-      for i in 0...length
+      (0...length).each do |i|
         result_array << yield(self[i])
       end
       result_array
@@ -10,14 +12,14 @@ module NewArrayMethods
 
     def my_select
       result_array = []
-      for i in 0...length
+      (0...length).each do |i|
         result_array << self[i] if yield(self[i])
       end
       result_array
     end
 
     def my_each
-      for i in 0...length
+      (0...length).each do |i|
         yield(self[i])
       end
       self

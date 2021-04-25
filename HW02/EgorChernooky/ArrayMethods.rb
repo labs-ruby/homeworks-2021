@@ -1,12 +1,13 @@
+# frozen_string_literal: true
+
 module ArrayMethods
   refine Array do
-
     def my_each
       length.times do |i|
         yield(self[i])
       end
     end
-    
+
     def my_map
       return_array = []
       length.times do |i|
@@ -14,14 +15,14 @@ module ArrayMethods
       end
       return_array
     end
-    
+
     def my_map!
       length.times do |i|
         self[i] = yield(self[i])
       end
       self
     end
-    
+
     def my_select
       return_array = []
       length.times do |i|
@@ -29,11 +30,11 @@ module ArrayMethods
       end
       return_array
     end
-    
+
     def my_empty?
       length.zero? ? true : false
     end
-    
+
     def my_reverse
       return_array = Array.new(length)
       length.times do |i|
@@ -41,7 +42,7 @@ module ArrayMethods
       end
       return_array
     end
-    
+
     def my_reverse!
       array = Array.new(length)
       length.times do |i|

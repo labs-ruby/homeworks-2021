@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module ArrayMethods
   refine Array do
     def my_each
-      for i in 0...self.size
+      (0...size).each do |i|
         yield self[i]
       end
     end
@@ -10,7 +12,7 @@ module ArrayMethods
       return unless block_given?
 
       new_arr = []
-      for i in 0...self.length
+      (0...length).each do |i|
         new_arr << yield(self[i])
       end
       new_arr
@@ -18,7 +20,7 @@ module ArrayMethods
 
     def my_select
       new_arr = []
-      for i in 0...size
+      (0...size).each do |i|
         new_arr << self[i] if yield(self[i])
       end
       new_arr

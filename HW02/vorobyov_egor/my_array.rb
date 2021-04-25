@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative('func')
 
 class MyArray
@@ -8,7 +10,7 @@ class MyArray
   end
 
   def each(&block)
-    for el in @arr
+    @arr.each do |el|
       block.call(el)
     end
   end

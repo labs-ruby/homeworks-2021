@@ -3,10 +3,9 @@
 # This is my own methods each,map,select
 module MyArrayMethods
   refine Array do
-
     def my_each
       if block_given?
-        for i in 0..(self.size-1)
+        (0..(size - 1)).each do |i|
           yield(self[i])
         end
       end
@@ -15,7 +14,7 @@ module MyArrayMethods
     def my_map
       arr = []
       if block_given?
-        for i in 0..(self.size-1)
+        (0..(size - 1)).each do |i|
           arr << yield(self[i])
         end
       end
@@ -25,12 +24,11 @@ module MyArrayMethods
     def my_select
       new_arr = []
       if block_given?
-        for i in 0..(self.size-1)
+        (0..(size - 1)).each do |i|
           new_arr << self[i] if yield(self[i]) == true
         end
         new_arr.my_each { |element| p element }
       end
     end
-
   end
 end

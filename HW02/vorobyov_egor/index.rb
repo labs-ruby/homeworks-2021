@@ -1,16 +1,16 @@
+# frozen_string_literal: true
+
 require_relative('my_array')
 
 arr = [1, 2, 3, 4, 5] # array for default iterators
 my_arr = MyArray.new([1, 2, 3, 4, 5]) # array of class MyArray for my methods
 
 # default select
-select_arr = arr.select { |num| num.even? } #=> [2, 4]
+select_arr = arr.select(&:even?) #=> [2, 4]
 p "arr of default class Array after select: #{select_arr}"
 
 # my select
-my_select_arr = MyArray.new(my_arr.select do |el| #=> [2, 4]
-  el.even?
-end)
+my_select_arr = MyArray.new(my_arr.select(&:even?))
 p my_select_arr
 
 p '-------------------'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'my_enumerables'
 include MyEnumerables
 arr = [2, 3, 2, 5]

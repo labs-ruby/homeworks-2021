@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ArrayModule
   refine Array do
     def my_each

@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module MyArrayMethods
   refine Array do
     def my_each
-      for index in (0...length)
+      (0...length).each do |index|
         yield(self[index]) if block_given?
       end
       self
@@ -10,7 +12,7 @@ module MyArrayMethods
     def my_select
       if block_given?
         array = []
-        for index in (0...length)
+        (0...length).each do |index|
           array << self[index] if yield(self[index])
         end
         array
@@ -22,7 +24,7 @@ module MyArrayMethods
     def my_map
       if block_given?
         array = []
-        for index in (0...length)
+        (0...length).each do |index|
           array << yield(self[index])
         end
         array
