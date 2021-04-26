@@ -2,5 +2,7 @@
 
 def task1(logs)
   lines = logs.split("\n")
-  lines.map { |line| line.downcase.include?('error') ? line : '' }.join
+  lines.each { |line| return line if line.downcase.include?('error') }
+
+  ''
 end

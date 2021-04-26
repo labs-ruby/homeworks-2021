@@ -22,10 +22,10 @@ def calc_difference(first, second)
   s_year, s_month, s_days = second.split(' ')[0].split('-').map(&:to_f)
   s_hours, s_mins, s_secs = second.split(' ')[1].split(':').map(&:to_f)
 
-  a = f_year * YEAR_SECS + f_month * MONTH_SECS + f_days * DAY_SECS + f_hours * HOUR_SECS + f_mins * MIN_SECS + f_secs
-  b = s_year * YEAR_SECS + s_month * MONTH_SECS + s_days * DAY_SECS + s_hours * HOUR_SECS + s_mins * MIN_SECS + s_secs
+  end_date = s_year * YEAR_SECS + s_month * MONTH_SECS + s_days * DAY_SECS + s_hours * HOUR_SECS + s_mins * MIN_SECS + s_secs
+  start_date = f_year * YEAR_SECS + f_month * MONTH_SECS + f_days * DAY_SECS + f_hours * HOUR_SECS + f_mins * MIN_SECS + f_secs
 
-  (b - a).round(1).to_s
+  (end_date - start_date).round(1).to_s
 end
 
 def task3(logs)

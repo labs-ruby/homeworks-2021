@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 def task4(data)
-  data = data.strip
   h = {}
 
   h[:letters] = data.count('a-zA-Z')
