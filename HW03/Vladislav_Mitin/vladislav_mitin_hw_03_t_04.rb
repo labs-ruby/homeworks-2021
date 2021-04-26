@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 def task4(data)
-  h = {}
+  character_counter = {}
 
-  h[:letters] = data.count('a-zA-Z')
-  h[:digits] = data.count('0-9')
+  character_counter[:letters] = data.count('a-zA-Z')
+  character_counter[:digits] = data.count('0-9')
 
-  h
+  character_counter
 end
