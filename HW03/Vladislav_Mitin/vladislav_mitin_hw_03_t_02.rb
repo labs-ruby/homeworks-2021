@@ -7,7 +7,7 @@ def task2(logs)
     next if date.nil?
 
     from = line.scan(/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}/).first
-    to = line.scan(/(?<=")[^]]+(?=")/).first.split[0..1].join(' ').upcase
+    to = line.scan(/(?<=")[^]]+(?=")/).first.split[0..1].join(' ').upcase.delete("POST")
 
     arr << "#{date} FROM: #{from} TO: #{to}"
   end
