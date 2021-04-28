@@ -4,8 +4,8 @@ logs = "10.6.246.103 - - [23/Apr/2018:20:30:39 +0300] POST /grid/2/messages HTTP
 10.6.246.101 - - [23/Apr/2018:20:29:39 +0300] POST /grid/2/messages HTTP/1.1 200 48 0.0290"
 
 def task_1(content)
-  arr = content.split("\n")
-  puts arr.grep(/error/)
+  array = content.split("\n")
+  puts array.grep(/error/)
 end
 
 task_1(logs)
