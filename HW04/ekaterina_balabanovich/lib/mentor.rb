@@ -10,8 +10,7 @@ class Mentor
   end
 
   def add_homework(title:, description:, student:)
-    homework = Homework.new(title, description)
-    student.get_homework(homework)
+    Homework.new(title, description, student, self)
   end
 
   def subscribe_to!(student)
