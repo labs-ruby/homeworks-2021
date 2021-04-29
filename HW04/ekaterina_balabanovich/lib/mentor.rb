@@ -14,10 +14,6 @@ class Mentor
     Homework.new(title, description, student, self)
   end
 
-  def subscribe_to!(student)
-    @students << student
-  end
-
   def get_notification(notification)
     @notifications << notification
   end
