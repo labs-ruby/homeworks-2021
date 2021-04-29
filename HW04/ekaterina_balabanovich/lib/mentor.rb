@@ -26,7 +26,11 @@ class Mentor
     @notifications.clear
   end
 
-  def reject_to_work!(homework); end
+  def reject_to_work!(homework)
+    homework.transition_to(WorkStateRejected.new)
+  end
 
-  def accept!(homework); end
+  def accept!(homework)
+    homework.transition_to(WorkStateAccepted.new)
+  end
 end
