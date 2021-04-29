@@ -14,9 +14,9 @@ class Student
     @notifications.clear
   end
 
-  def to_work!; end
-
-  def add_answer!(homework, answer); end
+  def add_answer!(homework, answer)
+    homework.solve(answer)
+  end
 
   def to_check!(homework)
     homework.transition_to(WorkStateDone.new)

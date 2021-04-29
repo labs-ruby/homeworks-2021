@@ -8,6 +8,7 @@ require_relative 'work_state/work_state_accepted'
 
 class Homework
   attr_reader :title, :description, :student, :mentor, :state, :notification
+  attr_accessor :answer
 
   def initialize(title, description, student, mentor)
     @title = title
@@ -22,5 +23,9 @@ class Homework
     @state = state
     @state.homework = self
     @state.process
+  end
+
+  def solve(answer)
+    @answer = answer
   end
 end
