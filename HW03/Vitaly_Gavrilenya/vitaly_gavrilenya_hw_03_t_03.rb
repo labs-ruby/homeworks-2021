@@ -15,21 +15,14 @@ def sort_log(log)
 end
 
 def parse_time(log)
-  parsed_time = []
-  log.each do |line|
-    parsed_time << Time.parse(line)
-  end
-  parsed_time
+  log.map { |line| Time.parse(line) }
 end
 
 def operation_duration(parsed_time)
   return '0' if parsed_time.length < 2
   return (parsed_time[1] - parsed_time[0]).to_s if parsed_time.length == 2
 
-  event_durations = []
-  (0...parsed_time.length - 1).each { |el| event_durations << parsed_time[el + 1] - parsed_time[el] }
-
-  event_durations
+  parsed_time.each_cons(2).map { |a, b| (b - a).to_s }
 end
 
 sorted_log = sort_log(log)
