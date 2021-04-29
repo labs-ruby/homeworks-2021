@@ -1,0 +1,2 @@
+class WorkStateNew < WorkState
+end

@@ -1,0 +1,2 @@
+class WorkStateRejected < WorkState
+end
