@@ -2,6 +2,7 @@
 
 require_relative 'work_state/work_state'
 require_relative 'work_state/work_state_new'
+require_relative 'work_state/work_state_done'
 
 class Homework
   attr_reader :title, :description, :student, :mentor, :state, :notification

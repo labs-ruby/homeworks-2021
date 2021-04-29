@@ -18,7 +18,9 @@ class Student
 
   def add_answer!(homework, answer); end
 
-  def to_check!(homework); end
+  def to_check!(homework)
+    homework.transition_to(WorkStateDone.new)
+  end
 
   def get_homework(homework)
     @homeworks << homework

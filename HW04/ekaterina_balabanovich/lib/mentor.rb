@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 class Mentor
-  attr_reader :name, :surname, :students
+  attr_reader :name, :surname, :students, :notifications
 
   def initialize(name, surname)
     @name = name
     @surname = surname
     @students = []
+    @notifications = []
   end
 
   def add_homework(title:, description:, student:)
@@ -17,9 +18,13 @@ class Mentor
     @students << student
   end
 
-  def notifications; end
+  def get_notification(notification)
+    @notifications << notification
+  end
 
-  def mark_as_read!; end
+  def mark_as_read!
+    @notifications.clear
+  end
 
   def reject_to_work!(homework); end
 
