@@ -9,7 +9,10 @@ class Mentor
     @students = []
   end
 
-  def add_homework(title:, description:, student:); end
+  def add_homework(title:, description:, student:)
+    homework = Homework.new(title, description)
+    student.get_homework(homework)
+  end
 
   def subscribe_to!(student)
     @students << student
