@@ -14,14 +14,12 @@ def sort_log(log)
 end
 
 def parse_data(log)
-  result_array = []
-  log.each do |line|
+  log.map do |line|
     date = line.scan(DATE_REGEXP).join
     from = line.scan(FROM_REGEXP).join
     to = line.scan(TO_REGEXP).join.upcase
-    result_array << "#{date} FROM: #{from} TO: #{to}"
+    "#{date} FROM: #{from} TO: #{to}"
   end
-  result_array
 end
 
 sorted_log = sort_log(log)
