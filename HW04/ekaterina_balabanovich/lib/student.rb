@@ -29,4 +29,8 @@ class Student
   def get_notifications(notification)
     @notifications << notification
   end
+
+  def delete_homework(homework)
+    @homeworks.delete(homework)
+  end
 end

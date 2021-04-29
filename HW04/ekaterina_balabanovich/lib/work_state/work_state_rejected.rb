@@ -2,6 +2,7 @@
 
 class WorkStateRejected < WorkState
   def process
+    homework.student.delete_homework(homework)
     homework.student.get_notifications(homework.notification.note[:reject])
   end
 end
