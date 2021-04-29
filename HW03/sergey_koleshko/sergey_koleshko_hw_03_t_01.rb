@@ -9,4 +9,3 @@ def break_error(logs)
 end
 
 puts break_error(logs)
-g
