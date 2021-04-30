@@ -5,7 +5,7 @@ logs = "10.6.246.103 - - [23/Apr/2018:20:30:39 +0300] POST /grid/2/messages HTTP
 
 def task_1(content)
   array = content.split("\n")
-  puts array.grep(/error/)
+  array.grep(/error/).first
 end
 
-task_1(logs)
+puts task_1(logs)

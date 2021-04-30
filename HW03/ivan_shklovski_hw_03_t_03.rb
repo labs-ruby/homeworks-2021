@@ -22,20 +22,13 @@ def task_3(content)
 
     final_arr << line.scan(/[0-9]+:[0-9]+:[0-9]+\.[0-9]/).first
   end
-  difference(final_arr)
+  final_arr.empty? ? 0 : difference(final_arr)
 end
 
 def difference(action)
-  difference = []
-  if action.size < 1
-    print 0
-  else
-    action.each_cons(2) do |first, second|
-      difference << Time.parse(second) - Time.parse(first)
-    end
-    final = difference.to_s
-  end
-  puts final
+  action.each_cons(2).map do |first, second|
+    Time.parse(second) - Time.parse(first)
+  end.join(',')
 end
 
-task_3(logs)
+puts task_3(logs)

@@ -6,17 +6,12 @@ logs = "10.6.246.103 - - [23/Apr/2018:20:30:39 +0300] POST /test/2/messages HTTP
 def task_2(content)
   final_arr = []
   arr = content.split("\n")
-  arr.each do |line|
-    if line.include?('HTTP')
-      date = line.scan(%r{[0-9]+/[A-z]+/[0-9]+:+[0-9]+:+[0-9]+:+[0-9]+\s+\+[0-9]*})
-      from = line.scan(/^[0-9]+\.+[0-9]+\.+[0-9]+\.+[0-9]*/)
-      to = line.scan(%r{/[a-z]+/[0-9]+/[a-z]*}).to_s.upcase
-      final_arr << "#{date} FROM: #{from} TO: #{to}"
-    else
-      final_arr
-    end
+  arr.select { |line| line.include?('POST') }.map do |line|
+    date = line.scan(%r{[0-9]+/[A-z]+/[0-9]+:+[0-9]+:+[0-9]+:+[0-9]+\s+\+[0-9]*})
+    from = line.scan(/^[0-9]+\.+[0-9]+\.+[0-9]+\.+[0-9]*/)
+    to = line.scan(%r{/[a-z]+/[0-9]+/[a-z]*}).to_s.upcase
+    "#{date} FROM: #{from} TO: #{to}"
   end
-  puts final_arr
 end
 
-task_2(logs)
+puts task_2(logs)
