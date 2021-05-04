@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def task4(text)
   output = { letters: 0, digits: 0 }
   text.each_char do |char|
