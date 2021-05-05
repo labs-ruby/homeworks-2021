@@ -19,11 +19,7 @@ def task3(logs)
                   datetimes[i].strftime('%Q').to_i).to_s[0...-2].to_f / 10).to_s
     end
 
-    if !return_array.empty?
-      return_array
-    else
-      '0'
-    end
+    return_array.empty? ? '0' : return_array
   else
     '0'
   end
