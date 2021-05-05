@@ -32,3 +32,18 @@ Requirements - Senior Level
 - Deep understanding of object-orientated programming
 - Enjoy helping other Engineers improve and become better Engineers and humans
 - Understanding of web design patterns
+
+##  AGENTE - Ruby on Rails Developer
+### Job Description
+> AGENTE - компания по разработке программного обеспечения, ориентированная на UX/UI дизайн, с 10-летним опытом работы и различными типами проектов и рынков.
+Мы гарантируем увлекательные профессиональные задачи для каждого нового члена команды AGENTE. Они помогут вам быстрее развиваться и за короткий период времени стать лучшим специалистом.
+Наша команда активно ищет Ruby on Rails Developer, у которого уже есть опыт работы и он готов активно развиваться и постигать профессию.
+
+Требования:
+- Опыт разработки бэкенда веб-приложений от 2-х лет
+- HTML/CSS/JavaScript и связанных технологий
+- Знание реляционных SQL баз данных
+- Знание Linux, опыт работы с командной строкой
+- Знание английского языка ( Intermediate )
+- Высокий уровень самоорганизации
+- Желание развиваться
