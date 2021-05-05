@@ -6,18 +6,11 @@ EXP_IP = /\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/.freeze
 EXP_PATH = %r{^/|//|(/[\w-]+)+[\s]}.freeze
 
 def task2(logs)
-  return_array = []
-  if logs.match(EXP_FIND)
-    raw_split_log_array = logs.split("\n")
-
-    return_array = raw_split_log_array.select { |line| line.match(EXP_FIND) }
-
-    return_array.map! do |line|
+  logs.split("\n")
+    .select { |line| line.match(EXP_FIND) }
+    .map do |line|
       line.match(EXP_DATE).to_s + ' FROM: ' +
-        line.match(EXP_IP).to_s + ' TO: ' +
-        line.match(EXP_PATH).to_s.upcase
-    end
-  else
-    return_array
+      line.match(EXP_IP).to_s + ' TO: ' +
+      line.match(EXP_PATH).to_s.upcase
   end
 end
