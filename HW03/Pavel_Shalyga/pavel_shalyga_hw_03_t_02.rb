@@ -6,15 +6,13 @@ TO = %r{/\w+/\w+/\w+}.freeze
 FORMAT = %r{^\d+\.\d+\.\d+\.\d+ - - \[\d+/[A-z]+/\d+:+\d+:+\d+:+\d+\s+\+\d+\] "POST /\w+/\w+/\w+ HTTP/1\.1"}.freeze
 
 def task2(input_string)
-  output_array = []
   lines_array = input_string.split("\n")
-  lines_array.select { |line| line.scan(FORMAT)[0] }.each do |line|
+  lines_array.select { |line| line.scan(FORMAT)[0] }.map do |line|
     from = line.scan(FROM)[0]
     date = line.scan(DATE)[0]
     to = line.scan(TO)[0]
-    output_array << "#{date} FROM: #{from} TO: #{to.upcase}"
+    "#{date} FROM: #{from} TO: #{to.upcase}"
   end
-  output_array
 end
 
 log = '10.6.246.103 - - [23/Apr/2018:20:30:39 +0300] "POST /test/2/messages HTTP/1.1" 200 48 0.0498
