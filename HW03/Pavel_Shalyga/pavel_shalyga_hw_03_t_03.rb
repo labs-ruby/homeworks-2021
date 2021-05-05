@@ -6,11 +6,9 @@ FORMAT = /Calling core with action:/.freeze
 DATE = /\d+-\d+-\d+ \d+:\d+:\d+.\d*/.freeze
 
 def task3(input_string)
-  time_array = []
   lines_array = input_string.split("\n")
-  lines_array.select { |line| line.scan(FORMAT)[0] }.each do |line|
-    date = line.scan(DATE)[0]
-    time_array << Time.parse(date)
+  time_array = lines_array.select { |line| line.scan(FORMAT)[0] }.map do |line|
+    Time.parse(line.scan(DATE)[0])
   end
   output_array = calculate_time(time_array)
   output_array.empty? ? '0' : output_array
