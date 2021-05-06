@@ -3,6 +3,10 @@ module App
     student = Student.new(name: 'John', surname: 'Doe')
     mentor = Mentor.new(name: 'Jack', surname: 'Gonsales')
 
+    homework = mentor.add_homework(title: 'HW03',
+                               description: 'description homework',
+                               student: student)
+
     student.submit_homework!(homework_data)
     student.homeworks # => [Homework, ...]
 
