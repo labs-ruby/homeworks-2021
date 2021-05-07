@@ -22,12 +22,12 @@ class Mentor < Person
   def reject_to_work!(homework)
     notification = Notification.new(homework, 'Homework rejected!')
     homework.student.send_notification(notification)
-    homework.status_reject!
+    homework.reject!
   end
 
   def accept!(homework)
     notification = Notification.new(homework, 'Homework accepted!')
     homework.student.send_notification(notification)
-    homework.status_accept!
+    homework.accept!
   end
 end

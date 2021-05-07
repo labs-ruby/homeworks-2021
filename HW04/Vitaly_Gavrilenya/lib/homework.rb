@@ -18,23 +18,23 @@ class Homework
     @answer = answer
   end
 
-  def status_todo!
+  def todo!
     change_status(TODO_STATUS)
   end
 
-  def status_work!
+  def work!
     change_status(WORK_STATUS)
   end
 
-  def status_completed!
+  def completed!
     change_status(COMPLETED_STATUS)
   end
 
-  def status_reject!
+  def reject!
     change_status(REJECT_STATUS)
   end
 
-  def status_accept!
+  def accept!
     change_status(ACCEPT_STATUS)
   end
 

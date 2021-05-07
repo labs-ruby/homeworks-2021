@@ -26,11 +26,11 @@ class Student < Person
       notification = Notification.new(homework, 'Student submited homework!')
       mentor.send_notification(notification)
     end
-    homework.status_completed!
+    homework.completed!
   end
 
   def to_work!(homework)
-    homework.status_work!
+    homework.work!
   end
 
   def add_answer!(homework, answer)
