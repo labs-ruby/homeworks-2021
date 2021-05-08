@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require_relative 'lib/student'
 require_relative 'lib/mentor'
 require_relative 'lib/notification'
 
-student = Student.new('John','Doe')
-mentor = Mentor.new('Jack','Gonsales')
+student = Student.new('John', 'Doe')
+mentor = Mentor.new('Jack', 'Gonsales')
 
 # mentor add new homework
 homework = mentor.add_homework('HW03', 'description homework', student)

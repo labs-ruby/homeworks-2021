@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module App
   def self.run
     student = Student.new(name: 'John', surname: 'Doe')
@@ -6,7 +8,7 @@ module App
     student.submit_homework!(homework_data)
     student.homeworks # => [Homework, ...]
 
-    mentor.subscribe_to(student)
+    mentor.subscribe_to!(student)
     mentor.notifications # => []
 
     student.submit_homework!(homework_data)
