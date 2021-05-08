@@ -9,11 +9,12 @@ class Mentor
   def add_homework(title, description, student)
   	new_homework = Homework.new(title, description)
   	student.homeworks << new_homework
+  	notify(student, "#{@name} #{@surname} was add #{title} to You")
   	new_homework
   end
   def subscribe_to!(student)
   	student.attach_mentor(self)
-  	p "Mentor #{@name} #{@surname} was attached to student #{student.name} #{student.surname}"
+  	notify(student, "Mentor was subscribed to You")
   end
   def mark_as_read!
     	case @notifications.size 
@@ -23,4 +24,19 @@ class Mentor
 			notifications.clear    		
     	end
   end
+  def reject_to_work!(homework)
+  	homework.state[:done] = false
+  	homework.state[:in_progress] = true
+  end
+  def accept!(homework)
+  	homework.state[:done] = false
+  	homework.state[:in_progress] = false
+  	homework.state[:accepted] = true
+  end
+
+
+  def notify(student, message)
+  	student.notifications << Notification.new(@name, @surname, message)
+  end
+
 end

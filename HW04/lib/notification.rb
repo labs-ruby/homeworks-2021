@@ -1,7 +1,7 @@
 class Notification
-	def initialize(owner, state, message)
-		@owner = owner
-		@state = state
+	def initialize(name, surname, message)
+		@name = name
+		@surname = surname
 		@message = message
 	end
 
