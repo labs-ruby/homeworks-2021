@@ -1,4 +1,10 @@
+# frozen_string_literal: true
+
 class Mentor
+  NEW = 'new homework'
+  REJECTED = 'homework rejected'
+  ACCEPTED = 'homework accepted'
+
   attr_reader :name, :surname, :notifications, :students
 
   def initialize(name:, surname:)
@@ -9,7 +15,7 @@ class Mentor
   end
 
   def new_homework(homework)
-    notification = Notification.new(homework: homework, status: 'new homework')
+    notification = Notification.new(homework: homework, status: NEW)
     @students.each { |student| student.push_notification(notification) }
   end
 
@@ -26,12 +32,12 @@ class Mentor
   end
 
   def reject_to_work!(homework)
-    notification = Notification.new(homework: homework, status: 'homework rejected')
+    notification = Notification.new(homework: homework, status: REJECTED)
     homework.student.push_notification(notification)
   end
 
   def accept!(homework)
-    notification = Notification.new(homework: homework, status: 'homework accepted')
+    notification = Notification.new(homework: homework, status: ACCEPTED)
     homework.student.push_notification(notification)
   end
 end

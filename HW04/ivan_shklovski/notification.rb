@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Notification
   attr_reader :homework, :status
 
@@ -7,6 +9,6 @@ class Notification
   end
 
   def to_s
-    @status || 'empty notification'
+    status || 'empty notification'
   end
 end

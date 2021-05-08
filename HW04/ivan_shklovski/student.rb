@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
 class Student
+  TO_WORK = 'work started'
+  TO_CHECK = 'homework has been sent to review'
   attr_reader :name, :surname, :notifications, :homeworks
 
   def initialize(name:, surname:)
@@ -17,7 +21,7 @@ class Student
   end
 
   def to_work!(homework)
-    notification = Notification.new(homework: homework, status: 'work started')
+    notification = Notification.new(homework: homework, status: TO_WORK)
     @homeworks << homework
     @mentor.push_notification(notification)
   end
@@ -31,7 +35,7 @@ class Student
   end
 
   def to_check!(homework)
-    notification = Notification.new(homework: homework, status: 'homework has been sent to review')
+    notification = Notification.new(homework: homework, status: TO_CHECK)
     @mentor.push_notification(notification)
   end
 end
