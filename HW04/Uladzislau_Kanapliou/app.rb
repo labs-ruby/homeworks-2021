@@ -1,21 +1,12 @@
-# Your application should describe the interaction between students and mentors.
-# See example of how it should look like.
-# When you implement the classes structure, create an app.rb file
-# where you will show the interactions between objects like in the example.
-
 require_relative 'lib/student'
 require_relative 'lib/mentor'
-require_relative 'lib/homework'
 require_relative 'lib/notification'
 
-student = Student.new(name: 'John', surname: 'Doe')
-mentor = Mentor.new(name: 'Jack', surname: 'Gonsales')
+student = Student.new('John','Doe')
+mentor = Mentor.new('Jack','Gonsales')
 
 # mentor add new homework
-homework = mentor.add_homework(title: 'HW03',
-                               description: 'description homework',
-                               student: student)
-
+homework = mentor.add_homework('HW03', 'description homework', student)
 # student see notification about new homework
 student.notifications
 # student mark as read all notifications
