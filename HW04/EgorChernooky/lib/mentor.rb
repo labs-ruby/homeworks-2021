@@ -7,7 +7,6 @@ class Mentor
   def initialize(name:, surname:)
     @name = name
     @surname = surname
-    @homeworks = {}
     @notifications = []
   end
 
@@ -18,6 +17,7 @@ class Mentor
   end
 
   def notify_student
+    abort('Error. No homeworks added.') if @homework.nil?
     @homework.student_notification
   end
 
