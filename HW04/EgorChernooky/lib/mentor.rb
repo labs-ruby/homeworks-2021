@@ -1,8 +1,9 @@
 # frozen_string_literal: true
+
 class Mentor
   attr_reader :name, :surname
   attr_accessor :notifications, :homeworks
-  
+
   def initialize(name:, surname:)
     @name = name
     @surname = surname
@@ -11,17 +12,13 @@ class Mentor
   end
 
   def add_homework(title:, description:, student:, mentor: self)
-    @hw_object = Homework.new(title: title, description: description, student: student, mentor: mentor)
-    @hw_object.student_homework
-    @homeworks[:title] = @hw_object.title
-    @homeworks[:description] = @hw_object.description
-    @homeworks[:student] = @hw_object.student
-    @homeworks[:mentor] = @hw_object.mentor
-    @homeworks
+    @homework = Homework.new(title: title, description: description, student: student, mentor: mentor)
+    @homework.student_homework
+    @homework
   end
 
   def notify_student
-    @hw_object.student_notification
+    @homework.student_notification
   end
 
   def mark_as_read!
@@ -29,7 +26,7 @@ class Mentor
   end
 
   def approve_hw
-    @hw_object.homework_approved
-    "#{name} #{surname} approved #{@hw_object.student.name}'s homework!"
+    @homework.homework_approved
+    "#{name} #{surname} approved #{@homework.student.name}'s homework!"
   end
 end

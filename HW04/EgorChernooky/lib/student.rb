@@ -1,8 +1,9 @@
 # frozen_string_literal: true
+
 class Student
   attr_reader :name, :surname
   attr_accessor :notifications, :homeworks
-  
+
   def initialize(name:, surname:, mentor:)
     @name = name
     @surname = surname

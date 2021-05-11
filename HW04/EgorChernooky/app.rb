@@ -1,16 +1,17 @@
-require_relative 'lib/Homework'
-require_relative 'lib/Mentor'
-require_relative 'lib/Student'
-require_relative 'lib/Notification'
+# frozen_string_literal: true
+
+require_relative 'lib/homework'
+require_relative 'lib/mentor'
+require_relative 'lib/student'
+require_relative 'lib/notification'
 
 mentor = Mentor.new(name: 'Jack', surname: 'Gonsales')
 student = Student.new(name: 'John', surname: 'Doe', mentor: mentor)
 
 homework = mentor.add_homework(title: 'HW01',
-                              description: 'Array methods implementation',
-                              student: student,
-                              mentor: mentor
-)
+                               description: 'Array methods implementation',
+                               student: student,
+                               mentor: mentor)
 
 mentor.notify_student
 
