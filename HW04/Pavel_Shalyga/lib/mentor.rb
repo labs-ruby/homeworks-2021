@@ -32,10 +32,10 @@ class Mentor
     student.notification.add("#{@name} #{@surname}: I'm your new mentor")
   end
 
-  def reject!(student, homework)
+  def reject!(student, homework, message)
     homework.reject!
     index = @students.index(student)
-    @students[index].notification.add("#{@name} #{@surname}: Homework #{homework} rejected")
+    @students[index].notification.add("#{@name} #{@surname}: Homework #{homework} rejected, because #{message}")
   end
 
   def accept!(student, homework)
