@@ -18,6 +18,10 @@ class Student
     @notification.messages.clear
   end
 
+  def homework
+    @homeworks.last
+  end
+
   def to_work!(homework)
     @mentor.notification.add("#{@name} #{@surname}: I'm working with #{homework}")
     index = @homeworks.index(homework)
