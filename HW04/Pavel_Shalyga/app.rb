@@ -49,3 +49,16 @@ mentor.accept!(homework)
 # student see notification about homework was accept
 puts student.notifications
 student.mark_as_read!
+
+# simple dialog between student and mentor
+student.sent_to(mentor, 'Test message')
+puts mentor.notifications
+mentor.mark_as_read!
+
+mentor.sent_to(student, 'Test answer')
+puts student.notifications
+student.mark_as_read!
+
+student.sent_to(mentor, 'Thanks')
+puts mentor.notifications
+mentor.mark_as_read!
