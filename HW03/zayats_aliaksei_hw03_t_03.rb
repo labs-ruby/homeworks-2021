@@ -1,4 +1,4 @@
-require 'time'
+PATTERN = "%Y-%m-%d %H:%M:%S.%L"
 
 def collect_core_timestamp(text)
   array_time = []
@@ -7,15 +7,13 @@ def collect_core_timestamp(text)
 end
 
 def diff_timestamp(array_time)
-  count = array_time.size - 1
   time_diff = []
-  pattern = "%Y-%m-%d %H:%M:%S.%L"
-  index = -1
-  count.times do
-    time_diff << Time.strptime(array_time[index], pattern) - Time.strptime(array_time[index - 1], pattern)
-    index -= 1
-  end
+  (array_time.size - 1).downto(1) { |n|time_diff << edit_time(array_time[n], PATTERN) - edit_time(array_time[n-1], PATTERN) }
   time_diff.reverse
+end
+
+def edit_time(date,pattern)
+  Time.strptime(date, pattern)
 end
 
 puts diff_timestamp(collect_core_timestamp(text))
