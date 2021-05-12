@@ -20,11 +20,11 @@ puts student.notifications
 student.mark_as_read!
 
 # student take to work homework
-p student.homeworks
+puts student.homeworks
 student.to_work!(student.homework, 'I added project files')
-p student.homeworks
+puts student.homeworks
 
-p student2.homeworks
+puts student2.homeworks
 
 # mentor see notification about homework to work
 puts mentor.notifications
@@ -43,8 +43,8 @@ mentor.reject!(student, student.homework, 'you have mistakes')
 # student see notification about homework was reject
 puts student.notifications
 student.mark_as_read!
-student.to_work!(student.homework, 'I changed project files')
-p student.homeworks
+student.add_answer(student.homework, 'I changed project files')
+puts student.homeworks
 student.to_check!(student.homework)
 
 puts mentor.notifications
@@ -69,3 +69,14 @@ student.sent_to(mentor, 'Thanks')
 puts mentor.notifications
 mentor.mark_as_read!
 
+puts student2.homeworks
+student2.to_work!(student2.homework, 'I added project files')
+puts student2.homeworks
+student2.to_check!(student2.homework)
+
+# mentor see notification about homework to check
+puts mentor.notifications
+mentor.mark_as_read!
+mentor.accept!(student2, student2.homework)
+
+puts student2.homework.status
