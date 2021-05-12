@@ -1,6 +1,6 @@
 # Homework class is used to create new homeworks for students
 class Homework
-  attr_accessor :status, :title, :description
+  attr_accessor :status, :title, :description, :solution
 
   def initialize(title, description)
     @status = :new
