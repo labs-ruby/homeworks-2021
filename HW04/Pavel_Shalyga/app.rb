@@ -5,12 +5,14 @@ require_relative 'lib/notification'
 
 student = Student.new('Pavel', 'Shalyga')
 mentor = Mentor.new('Jack', 'Gonsales')
+student2 = Student.new('Ivan', 'Ivanov')
 
 # mentor subscribe to student
 mentor.subscribe_to!(student)
+mentor.subscribe_to!(student2)
 
 # mentor add new homework
-homework = mentor.add_homework('HW03', 'description homework')
+mentor.add_homework('HW03', 'description homework')
 
 # student see notification about new homework
 puts student.notifications
@@ -19,8 +21,10 @@ student.mark_as_read!
 
 # student take to work homework
 p student.homeworks
-student.to_work!(homework)
+student.to_work!(student.homework, 'I added project files')
 p student.homeworks
+
+p student2.homeworks
 
 # mentor see notification about homework to work
 puts mentor.notifications
@@ -28,23 +32,25 @@ puts mentor.notifications
 mentor.mark_as_read!
 
 # student sent to check homework
-student.to_check!(homework)
+student.to_check!(student.homework)
 
 # mentor see notification about homework to check
 puts mentor.notifications
 mentor.mark_as_read!
 # mentor reject homework
-mentor.reject!(homework)
+mentor.reject!(student, student.homework, 'you have mistakes')
 
 # student see notification about homework was reject
 puts student.notifications
 student.mark_as_read!
-student.to_check!(homework)
+student.to_work!(student.homework, 'I changed project files')
+p student.homeworks
+student.to_check!(student.homework)
 
 puts mentor.notifications
 mentor.mark_as_read!
 # mentor accept homework
-mentor.accept!(homework)
+mentor.accept!(student, student.homework)
 
 # student see notification about homework was accept
 puts student.notifications
@@ -62,3 +68,4 @@ student.mark_as_read!
 student.sent_to(mentor, 'Thanks')
 puts mentor.notifications
 mentor.mark_as_read!
+
