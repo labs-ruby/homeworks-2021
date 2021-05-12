@@ -21,7 +21,7 @@ class Mentor
   def add_homework(title, description)
     homework = Homework.new(title, description)
     @student.homeworks << homework
-    @student.notification.add("New homework: #{title}, #{description}")
+    @student.notification.add("#{@name} #{@surname}: New homework: #{title}, #{description}")
     homework
   end
 
@@ -32,11 +32,15 @@ class Mentor
 
   def reject!(homework)
     homework.reject!
-    student.notification.add("Homework #{homework} rejected")
+    @student.notification.add("#{@name} #{@surname}: Homework #{homework} rejected")
   end
 
   def accept!(homework)
     homework.accept!
-    student.notification.add("Homework #{homework} accepted")
+    @student.notification.add("#{@name} #{@surname}: Homework #{homework} accepted")
+  end
+
+  def sent_to(student, message)
+    student.notification.add("#{@name} #{@surname}: #{message}")
   end
 end
