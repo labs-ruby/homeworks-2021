@@ -19,12 +19,16 @@ class Student
   end
 
   def to_work!(homework)
-    mentor.notification.add("I'm working with #{homework}")
+    @mentor.notification.add("#{@name} #{@surname}: I'm working with #{homework}")
     index = @homeworks.index(homework)
     @homeworks[index].working!
   end
 
   def to_check!(homework)
-    mentor.notification.add("My homework: #{homework}")
+    @mentor.notification.add("#{@name} #{@surname}: My homework: #{homework}")
+  end
+
+  def sent_to(mentor, message)
+    mentor.notification.add("#{@name} #{@surname}: #{message}")
   end
 end
