@@ -22,14 +22,15 @@ class Student
     @homeworks.last
   end
 
-  def to_work!(homework)
+  def to_work!(homework, solution)
     @mentor.notification.add("#{@name} #{@surname}: I'm working with #{homework}")
     index = @homeworks.index(homework)
     @homeworks[index].working!
+    @homeworks[index].solution = solution
   end
 
   def to_check!(homework)
-    @mentor.notification.add("#{@name} #{@surname}: My homework: #{homework}")
+    @mentor.notification.add("#{@name} #{@surname}: My homework: #{homework}, with my solution: #{homework.solution}")
   end
 
   def sent_to(mentor, message)
