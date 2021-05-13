@@ -15,5 +15,4 @@ def filter_log(text)
       arr
     end
   end
-  arr
 end
