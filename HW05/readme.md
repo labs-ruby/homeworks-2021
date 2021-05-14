@@ -5,6 +5,6 @@
   
 ### Tasks:
 
-For HW04 and HW05, create corresponding spec files right inside these folders for your <name_surname>.
+For HW02 and HW03, create corresponding spec files right inside these folders for your <name_surname>.
 
 Consider https://www.betterspecs.org/ when writing your test cases.
