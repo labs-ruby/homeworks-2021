@@ -3,6 +3,11 @@ require_relative '../vladislav_mitin_hw_03_t_04'
 RSpec.describe 'task4' do
   subject { task4(text) }
 
+  context 'when text is not string' do
+    let(:text) { 2 }
+    it { within_block_is_expected.to raise_error NoMethodError }
+  end
+
   context 'when text has two digits and seven letters' do
     let(:text) { 'wicked 2.. ! 3 w' }
 

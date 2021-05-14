@@ -7,6 +7,11 @@ RSpec.describe 'task1' do
     '2018-04-23 20:30:42: SSL error, peer: 10.6.246.101, peer cert: , #<Puma::MiniSSL::SSLError: System error: Undefined error: 0 - 1>'
   end
 
+  context 'when logs are not string' do
+    let(:logs) { 2 }
+    it { within_block_is_expected.to raise_error NoMethodError }
+  end
+
   context 'when logs have one line with error' do
     let(:logs) do
       <<~LOGS

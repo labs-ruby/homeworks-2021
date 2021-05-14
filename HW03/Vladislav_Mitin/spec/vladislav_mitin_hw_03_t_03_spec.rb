@@ -3,6 +3,11 @@ require_relative '../vladislav_mitin_hw_03_t_03'
 RSpec.describe 'task3' do
   subject { task3(logs) }
 
+  context 'when logs are not string' do
+    let(:logs) { 2 }
+    it { within_block_is_expected.to raise_error NoMethodError }
+  end
+
   context 'when logs have more than two duplications' do
     let(:logs) do
       <<~LOGS

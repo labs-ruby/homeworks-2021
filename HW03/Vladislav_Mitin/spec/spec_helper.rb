@@ -13,7 +13,15 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+module WithinBlockIsExpected
+  def within_block_is_expected
+    expect { subject }
+  end
+end
+
 RSpec.configure do |config|
+  include WithinBlockIsExpected
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

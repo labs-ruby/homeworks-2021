@@ -10,6 +10,11 @@ RSpec.describe 'task2' do
     ]
   end
 
+  context 'when logs are not string' do
+    let(:logs) { 2 }
+    it { within_block_is_expected.to raise_error NoMethodError }
+  end
+
   context 'when logs has lines with error' do
     let(:logs) do
       <<~LOGS
