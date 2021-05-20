@@ -19,7 +19,7 @@ RSpec.describe NewArrayMethods do
 
     context 'when no block is given' do
       it 'returns "nil"' do
-        expect(my_array.my_map).to eql(nil)
+        expect(my_array.my_map).to be(nil)
       end
     end
   end
@@ -42,7 +42,7 @@ RSpec.describe NewArrayMethods do
 
     context 'when no block is given' do
       it 'returns "nil"' do
-        expect(my_array.my_select).to eql(nil)
+        expect(my_array.my_select).to be(nil)
       end
     end
   end
@@ -54,13 +54,13 @@ RSpec.describe NewArrayMethods do
       end
 
       it 'iterates over array' do
-        expect{my_array.my_each { |el| p el}}.to output("1\n2\n3\n4\n").to_stdout
+        expect { my_array.my_each { |el| p el } }.to output("1\n2\n3\n4\n").to_stdout
       end
     end
 
     context 'when no block is given' do
       it 'returns "nil"' do
-        expect(my_array.my_each).to eql(nil)
+        expect(my_array.my_each).to be(nil)
       end
     end
   end
