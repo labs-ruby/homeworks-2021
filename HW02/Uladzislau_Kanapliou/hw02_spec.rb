@@ -62,7 +62,7 @@ describe MyArrayMethods do
       end
 
       it 'works like map' do
-        result = [true, false, true, false, true]
+        result = subject.map {|el| el.odd? }
         expect(subject.my_map { |el| el.odd? }).to eq(result)
       end
     end
@@ -93,7 +93,7 @@ describe MyArrayMethods do
       end
 
       it 'works like select' do
-        result = [1, 3, 5]
+        result = subject.select{|el| el.odd?}
         expect(subject.my_select { |el| el.odd? }).to eq(result)
       end
     end
