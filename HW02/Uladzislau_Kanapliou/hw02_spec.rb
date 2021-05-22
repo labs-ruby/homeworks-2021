@@ -31,7 +31,39 @@ describe MyArrayMethods do
       end
 
       it 'raise exception when block contains exception' do
-        expect {subject.my_each { raise StandardError }}.to raise_error (StandardError)
+        expect { subject.my_each { raise StandardError } }.to raise_error(StandardError)
+      end
+    end
+  end
+
+  describe '.my_map' do
+    context 'array is not empty' do
+      subject { [1, 2, 3, 4, 5] }
+
+      it 'iterates through array' do
+        sum = 0
+        subject.my_map { sum += 1 }
+        expect(sum).to eq(subject.size)
+      end
+
+      it 'passes each element through pipe' do
+        result = []
+        subject.my_map { |el| result << el }
+        expect(result).to eq(subject)
+      end
+
+      it 'returns new array with nil values' do
+        result = [nil, nil, nil, nil, nil]
+        expect(subject.my_map {}).to eq(result)
+      end
+
+      it 'raise exception when block contains exception' do
+        expect { subject.my_map { raise StandardError } }.to raise_error(StandardError)
+      end
+
+      it 'works like map' do
+        result = [true, false, true, false, true]
+        expect(subject.my_map { |el| el.odd? }).to eq(result)
       end
     end
   end
