@@ -67,4 +67,35 @@ describe MyArrayMethods do
       end
     end
   end
+
+  describe '.my_select' do
+    context 'array is not empty' do
+      subject { [1, 2, 3, 4, 5] }
+
+      it 'iterates through array' do
+        sum = 0
+        subject.my_select { sum += 1 }
+        expect(sum).to eq(subject.size)
+      end
+
+      it 'passes each element through pipe' do
+        result = []
+        subject.my_select { |el| result << el }
+        expect(result).to eq(subject)
+      end
+
+      it 'returns new empty array' do
+        expect(subject.my_select {}).to eq([])
+      end
+
+      it 'raise exception when block contains exception' do
+        expect { subject.my_select { raise StandardError } }.to raise_error(StandardError)
+      end
+
+      it 'works like select' do
+        result = [1, 3, 5]
+        expect(subject.my_select { |el| el.odd? }).to eq(result)
+      end
+    end
+  end
 end
