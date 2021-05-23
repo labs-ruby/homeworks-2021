@@ -12,11 +12,11 @@ describe '.task3' do
 			2018-04-23 17:18:38.8 ubuntu-xenial[14319] Debug - connecting to: 10.6.246.101
 			2018-04-23 17:18:59.8 ubuntu-xenial[14319] Debug - inside docker_handle_event
 			2018-04-23 17:19:38.8 ubuntu-xenial[14319] Debug - Calling core with action: messages'
-    expect(Array).to eq(task3(logs).class)
+    expect(task3(logs).class).to eq(Array)
   end
 
   it 'returns "0" if there are no valid events at the entrance or it is the only one' do
     line = '2018-04-23 20:30:42'
-    expect('0').to eq(task3(line))
+    expect(task3(line)).to eq('0')
   end
 end

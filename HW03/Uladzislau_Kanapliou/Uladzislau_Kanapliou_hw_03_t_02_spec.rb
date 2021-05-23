@@ -13,11 +13,11 @@ describe '.task2' do
       '23/Apr/2018:20:30:42 +0300 FROM: 10.6.246.101 TO: /TEST/2/RUN ',
       '23/Apr/2018:20:31:39 +0300 FROM: 10.6.246.101 TO: /TEST/2/MESSAGES '
     ]
-    expect(result).to eq(task2(logs))
+    expect(task2(logs)).to eq(result)
   end
 
   it 'it return an empty array if logs does not contain post requests' do
     line = '2018-04-23 20:30:42'
-    expect([]).to eq(task2(line))
+    expect(task2(line)).to eq([])
   end
 end
