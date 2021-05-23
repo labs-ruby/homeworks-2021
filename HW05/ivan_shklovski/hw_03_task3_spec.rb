@@ -3,7 +3,7 @@
 require_relative './hw_03_t_03'
 
 describe 'task_3' do
-  let!(:logs) do
+  let(:logs) do
     <<~LOGS
       2018-04-23 17:17:49.7 ubuntu-xenial[14319] Debug - Calling core with action: event
       2018-04-23 17:17:49.7 ubuntu-xenial[14319] Debug - connecting to: 10.6.246.101
@@ -20,7 +20,7 @@ describe 'task_3' do
     LOGS
   end
 
-  let!(:logs_without_events) do
+  let(:logs_without_events) do
     <<~LOGS
       2018-04-23 17:17:49.7 ubuntu-xenial[14319] Debug - connecting to: 10.6.246.101
       2018-04-23 17:17:49.8 ubuntu-xenial[14319] Debug - docker event processed
@@ -32,14 +32,14 @@ describe 'task_3' do
     LOGS
   end
 
-  context 'return duration between events' do
-    it 'should return duration in seconds between events when we call the task_3 method' do
+  context 'with valid events' do
+    it 'returns duration in seconds between events' do
       expect(task_3(logs)).to eq '49.1,21.0,22.6,26.2'
     end
   end
 
-  context 'if there are no valid events' do
-    it 'should return "0" when we call the task_3 method' do
+  context 'without valid events' do
+    it 'returns "0"' do
       expect(task_3(logs_without_events)).to eq '0'
     end
   end
