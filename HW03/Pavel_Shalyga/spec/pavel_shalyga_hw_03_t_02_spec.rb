@@ -36,7 +36,7 @@ RSpec.describe 'Task 2' do
     LOGS
   end
 
-  describe '#task1 method' do
+  describe '#task2 method' do
     context 'when logs contain errors' do
       it 'return an array of formatted strings containing information about post requests' do
         expect(task2(logs_with_post_requests_and_errors)).to eq([
