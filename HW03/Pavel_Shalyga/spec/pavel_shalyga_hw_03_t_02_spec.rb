@@ -58,19 +58,19 @@ RSpec.describe 'Task 2' do
     end
 
     context 'when there are no logs' do
-      it 'return an empty string' do
+      it 'return an empty array' do
         expect(task2(empty_log)).to eq([])
       end
     end
 
     context 'when there are no matching strings in the logs' do
-      it 'return an empty string' do
+      it 'return an empty array' do
         expect(task2(logs_without_post_requests)).to eq([])
       end
     end
 
     context 'when logs contain incorrect strings' do
-      it 'return an empty string' do
+      it 'return an empty array' do
         expect(task2(wrong_logs)).to eq([])
       end
     end
