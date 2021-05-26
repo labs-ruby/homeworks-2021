@@ -37,18 +37,17 @@ RSpec.describe 'hw_03_t_3' do
   let(:numbers) do
     %w[49.1 32.0]
   end
-  let(:zero) { 0 }
 
   describe '#task3' do
     context 'when there is no logs' do
       it 'should return 0' do
-        expect(task3(empty_string)).to eq zero
+        expect(task3(empty_string)).to be_zero
       end
     end
 
     context 'when there is only 1 suitable variant' do
       it 'should return 0' do
-        expect(task3(empty_string)).to eq zero
+        expect(task3(empty_string)).to be_zero
       end
     end
 
