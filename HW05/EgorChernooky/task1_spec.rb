@@ -20,7 +20,7 @@ RSpec.describe 'hw_03_t_1' do
   describe '#task1' do
     context 'when logs are empty' do
       it 'should return an empty string' do
-        expect(task1(empty_string)).to eq empty_string
+        expect(task1(empty_string)).to be_empty
       end
     end
 
