@@ -26,13 +26,13 @@ RSpec.describe 'hw_03_t_2' do
   describe '#task2' do
     context 'when logs are empty' do
       it 'should return an empty array' do
-        expect(task2(empty_string)).to eq empty_array
+        expect(task2(empty_string)).to be_empty
       end
     end
     context 'when logs are not empty' do
       context 'when there is no suitable variants in text' do
         it 'should return an empty array' do
-          expect(task2(no_suit_var_text)).to eq empty_array
+          expect(task2(no_suit_var_text)).to be_empty
         end
       end
 
