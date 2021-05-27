@@ -17,7 +17,7 @@ RSpec.describe ArrayMethods do
     end
 
     context 'when array is not empty' do
-      it 'should return an origin array' do
+      it 'returns an origin array' do
         expect(array.my_each { |item| p item }).to eq array
       end
     end
