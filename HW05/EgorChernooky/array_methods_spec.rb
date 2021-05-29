@@ -33,9 +33,11 @@ RSpec.describe ArrayMethods do
     context 'when array is not empty' do
       let(:mapped_array) { [1, 4, 9, 16, 25] }
 
-      it 'should return a changed array but origin array should not be changed' do
+      let(:mapped_array) { [1, 4, 9, 16, 25] }
+      
+      it 'returns new array' do
         expect(array.my_map { |item| item**2 }).to eq mapped_array
-        expect(array == mapped_array).to eq false
+        expect(array ).not_to eq mapped_array
       end
     end
   end
