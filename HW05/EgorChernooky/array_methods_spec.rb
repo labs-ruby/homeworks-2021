@@ -41,8 +41,6 @@ RSpec.describe ArrayMethods do
   end
 
   describe '#my_map!' do
-    let(:mapped_array) { [1, 4, 9, 16, 25] }
-
     context 'when array is empty' do
       it 'should return an empty array' do
         expect(empty_array.my_map! { |item| item**2 }).to be_empty
@@ -50,6 +48,8 @@ RSpec.describe ArrayMethods do
     end
 
     context 'when array is not empty' do
+      let(:mapped_array) { [1, 4, 9, 16, 25] }
+      
       it 'should return a changed origin array' do
         expect(array.my_map! { |item| item**2 }).to eq mapped_array
         expect(array == mapped_array).to eq true
@@ -58,7 +58,7 @@ RSpec.describe ArrayMethods do
   end
 
   describe '#my_select' do
-    let(:selected_arr) { [3, 4, 5] }
+    
 
     context 'when array is empty' do
       it 'should return an empty array' do
@@ -67,6 +67,8 @@ RSpec.describe ArrayMethods do
     end
 
     context 'when array is not empty' do
+      let(:selected_arr) { [3, 4, 5] }
+      
       it 'should return a new array and not change the origin one' do
         expect(array.my_select { |item| item > 2 }).to eq selected_arr
         expect(array == selected_arr).to eq false
@@ -89,8 +91,6 @@ RSpec.describe ArrayMethods do
   end
 
   describe '#my_reverse' do
-    let(:reversed_array) { [5, 4, 3, 2, 1] }
-
     context 'when array is empty' do
       it 'should return an empty array' do
         expect(empty_array.my_reverse).to be_empty
@@ -98,6 +98,8 @@ RSpec.describe ArrayMethods do
     end
 
     context 'when array is not empty' do
+      let(:reversed_array) { [5, 4, 3, 2, 1] }
+      
       it 'should return a reversed array without changing the origin one' do
         expect(array.my_reverse).to eq reversed_array
         expect(array == reversed_array).to eq false
@@ -106,8 +108,6 @@ RSpec.describe ArrayMethods do
   end
 
   describe '#my_reverse!' do
-    let(:reversed_array) { [5, 4, 3, 2, 1] }
-
     context 'when array is empty' do
       it 'should return an empty array' do
         expect(empty_array.my_reverse!).to be_empty
@@ -115,6 +115,8 @@ RSpec.describe ArrayMethods do
     end
 
     context 'when array is not empty' do
+      let(:reversed_array) { [5, 4, 3, 2, 1] }
+      
       it 'should return a reversed origin array' do
         expect(array.my_reverse!).to eq reversed_array
         expect(array == reversed_array).to eq true
