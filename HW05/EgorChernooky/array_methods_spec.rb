@@ -24,8 +24,6 @@ RSpec.describe ArrayMethods do
   end
 
   describe '#my_map' do
-    let(:mapped_array) { [1, 4, 9, 16, 25] }
-
     context 'when array is empty' do
       it 'should return an empty array'  do
         expect(empty_array.my_map { |item| item**2 }).to be_empty
@@ -33,6 +31,8 @@ RSpec.describe ArrayMethods do
     end
 
     context 'when array is not empty' do
+      let(:mapped_array) { [1, 4, 9, 16, 25] }
+
       it 'should return a changed array but origin array should not be changed' do
         expect(array.my_map { |item| item**2 }).to eq mapped_array
         expect(array == mapped_array).to eq false
@@ -58,8 +58,6 @@ RSpec.describe ArrayMethods do
   end
 
   describe '#my_select' do
-    
-
     context 'when array is empty' do
       it 'should return an empty array' do
         expect(empty_array.my_select { |item| item > 2 }).to be_empty
