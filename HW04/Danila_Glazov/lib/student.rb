@@ -1,9 +1,11 @@
 # frozen_string_literal: false
 
+require_relative 'notification'
+
 # The Student class is used to create objects that can interact with mentor objects.
 class Student
   attr_reader :notification, :homeworks
-  attr_writer :mentor
+  attr_accessor :mentor
 
   def initialize(name: '', surname: '')
     @name = name

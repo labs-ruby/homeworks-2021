@@ -1,9 +1,9 @@
 # frozen_string_literal: false
 
+require './lib/answer'
 require './lib/mentor'
 require './lib/student'
 require './lib/homework'
-require './lib/notification'
 
 # Module App describes student-mentor relationship
 module App
@@ -30,15 +30,15 @@ module App
     p mentor.notifications
 
     p student.homeworks
-    student.add_answer!(homework, 'new students answer')
+    student.add_answer!(homework, Answer.new(student, 'new students answer'))
     student.to_check!(homework)
 
     p mentor.notifications
-    mentor.reject_to_work!(homework)
+    mentor.reject_work!(homework)
 
     p student.notifications
     student.mark_as_read!
-    student.add_answer!(homework, 'new students answer_after reject')
+    student.add_answer!(homework, Answer.new(student, 'new students answer_after reject'))
     student.to_check!(homework)
 
     mentor.accept!(homework)

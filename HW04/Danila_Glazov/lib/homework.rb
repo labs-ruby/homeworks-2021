@@ -2,33 +2,23 @@
 
 # Class Homework is used to create new homeworks for students
 class Homework
-  attr_reader :title, :description
-  attr_accessor :answer, :status
+  attr_reader :title, :description, :answers
 
   def initialize(title: '', description: '')
     @title = title
     @description = description
-    @answer = ''
-    @status = ''
+    @answers = {}
   end
 
   def add_answer(answer)
-    @answer = answer
-  end
-
-  def rejected!
-    @status = 'rejected'
-  end
-
-  def accepted!
-    @status = 'accepted'
+    @answers[answer.student] = answer
   end
 
   def to_s
     "Title - #{@title}, Description - #{@description}"
   end
 
-  def current_status
-    "Answer #{@answer} is #{@status}"
+  def answer_status_of(student)
+    "Answer: #{@answers[student]}"
   end
 end
