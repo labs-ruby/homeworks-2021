@@ -12,18 +12,18 @@ class Mentor < Member
   end
 
   def reject_to_work!(homework, student)
-    solver = HomeworksManager.instance.find_solver(student, homework).to_members
+    solver = HomeworksManager.instance.find_solver(student, homework).member.to_members
     HomeworksManager.instance.transition_to(HomeworkState::Rejected.new, solver, homework)
   end
 
   def accept!(homework, student)
-    solver = HomeworksManager.instance.find_solver(student, homework).to_members
+    solver = HomeworksManager.instance.find_solver(student, homework).member.to_members
     HomeworksManager.instance.transition_to(HomeworkState::Accepted.new, solver, homework)
   end
 
   def assign(homework, student)
     HomeworksManager.instance.attach_solver(student, homework)
-    solver = HomeworksManager.instance.find_solver(student, homework).to_members
+    solver = HomeworksManager.instance.find_solver(student, homework).member.to_members
     HomeworkState::New.new.process(solver, homework)
   end
 

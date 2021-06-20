@@ -22,11 +22,11 @@ module MembersManager
   end
 
   def find_reviewer(member, homework)
-    reviewers.select { |reviewer| reviewer.member == member && reviewer.homework == homework }.first.member
+    reviewers.select { |reviewer| reviewer.member == member && reviewer.homework == homework }.first
   end
 
   def find_solver(member, homework)
-    solvers.select { |solver| solver.member == member && solver.homework == homework }.first.member
+    solvers.select { |solver| solver.member == member && solver.homework == homework }.first
   end
 
   def find_reviewers_by_homework(homework)
